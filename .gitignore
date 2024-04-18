@@ -1,0 +1,39 @@
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Random files
+*.webloc
+
+# Xcode items
+playground.xcworkspace/
+xcuserdata/
+*.imageset/
+
+## Asset files
+# Graphics files
+*.jpg
+*.jpeg
+*.png
+*.psd
+*.gif
+*.svg
+*.bmp
+
+# Document files
+*.csv
+*.txt
+*.pdf
+*.json
+
+## User settings
+#*.xcodeproj
+xcuserdata/
+.swiftpm
+
+# Files with secret stuff
+PrivateKeys.swift
+
+# Firebase
+GoogleService-Info.plist
