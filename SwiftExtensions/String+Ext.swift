@@ -18,9 +18,7 @@ extension String {
     
     return dateFormatter.date(from: self)
   }
-}
-
-extension String {
+  
   func convertToDateWithFormat(format: String) -> Date? {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = format

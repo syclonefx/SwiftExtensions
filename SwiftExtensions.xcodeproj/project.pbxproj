@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		580D5C052BD35A4100D37FDB /* URL+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580D5C042BD35A4100D37FDB /* URL+Ext.swift */; };
 		5813FBF82BD1A3B4009B5256 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5813FBF72BD1A3B4009B5256 /* Array+Ext.swift */; };
 		582566F32BCE072900AB55B5 /* SwiftExtensionsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582566F22BCE072900AB55B5 /* SwiftExtensionsApp.swift */; };
 		582566F52BCE072900AB55B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582566F42BCE072900AB55B5 /* ContentView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		580D5C042BD35A4100D37FDB /* URL+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Ext.swift"; sourceTree = "<group>"; };
 		5813FBF72BD1A3B4009B5256 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		582566EF2BCE072900AB55B5 /* SwiftExtensions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExtensions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		582566F22BCE072900AB55B5 /* SwiftExtensionsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensionsApp.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				582567022BCE076100AB55B5 /* Date+Ext.swift */,
 				582567042BCE078B00AB55B5 /* ShapeStyle+Ext.swift */,
 				582567002BCE075300AB55B5 /* String+Ext.swift */,
+				580D5C042BD35A4100D37FDB /* URL+Ext.swift */,
 				582566F62BCE072A00AB55B5 /* Assets.xcassets */,
 				582566F82BCE072A00AB55B5 /* Preview Content */,
 			);
@@ -159,6 +162,7 @@
 				58AE53412BCEBAA5009727BA /* Bundle+Ext.swift in Sources */,
 				582567032BCE076100AB55B5 /* Date+Ext.swift in Sources */,
 				582567052BCE078B00AB55B5 /* ShapeStyle+Ext.swift in Sources */,
+				580D5C052BD35A4100D37FDB /* URL+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

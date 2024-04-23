@@ -8,6 +8,37 @@
 import Foundation
 
 extension Date {
+  
+  // Date from string
+  func dateFromString(string: String) -> Date? {
+    // https://www.hackingwithswift.com/forums/swift/how-to-convert-string-into-date/14396
+    // input: 2022-05-02T00:00+03:00
+    let dateFormatter = ISO8601DateFormatter()
+    dateFormatter.formatOptions = [.withFullDate]
+    let date = dateFormatter.date(from: string)
+    
+    return date
+  }
+  
+  /// Returns an integer of the specifced  date component
+  /// - Parameter type: Calendar.Component
+  /// - Returns: Returns an integer of the specifced  date component
+  func get(_ type: Calendar.Component) -> Int {
+    let calendar = Calendar.current
+    return calendar.component(type, from: self)
+  }
+  
+  // Date to string conversion
+  func convertToMonthDayYear() -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/yyyy"
+    return dateFormatter.string(from: self)
+  }
+  
+  func shortened() -> String {
+    formatted(date: .long, time: .shortened)
+  }
+  
   func toString() -> String{
     // input: 2024-04-16 00:53:49 +0000
     // output: Mon, April 15
@@ -28,24 +59,29 @@ extension Date {
     return dateFormatter.string(from: self)
   }
   
-  func dateFromString(string: String) -> Date? {
-    // https://www.hackingwithswift.com/forums/swift/how-to-convert-string-into-date/14396
-    // input: 2022-05-02T00:00+03:00
-    let dateFormatter = ISO8601DateFormatter()
-    dateFormatter.formatOptions = [.withFullDate]
-    let date = dateFormatter.date(from: string)
-    
-    return date
+  // Adding and Subtracting
+  func add(hours: Int) -> Date {
+      return Calendar(identifier: .gregorian).date(byAdding: .hour, value: hours, to: self)!
   }
   
-  func convertToMonthDayYear() -> String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "MM/dd/yyyy"
-    return dateFormatter.string(from: self)
+  func subtract(hours: Int) -> Date {
+    return Calendar.current.date(byAdding: .hour, value: -hours, to: self)!
   }
   
-  func get(_ type: Calendar.Component) -> Int {
-    let calendar = Calendar.current
-    return calendar.component(type, from: self)
+  func withAddedHours(hours: Double) -> Date {
+       withAddedMinutes(minutes: hours * 60)
   }
+  
+  func withAddedMinutes(minutes: Double) -> Date {
+           addingTimeInterval(minutes * 60)
+  }
+  
+  func withSubtractedHours(hours: Double) -> Date {
+       withAddedMinutes(minutes: -(hours * 60))
+  }
+  
+  func withSubtractedMinutes(minutes: Double) -> Date {
+           addingTimeInterval(-(minutes * 60))
+  }
+  
 }
