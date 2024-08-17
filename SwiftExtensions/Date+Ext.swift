@@ -20,9 +20,9 @@ extension Date {
     return date
   }
   
-  /// Returns an integer of the specifced  date component
+  /// Returns an integer of the specified  date component
   /// - Parameter type: Calendar.Component
-  /// - Returns: Returns an integer of the specifced  date component
+  /// - Returns: Returns an integer of the specified  date component
   func get(_ type: Calendar.Component) -> Int {
     let calendar = Calendar.current
     return calendar.component(type, from: self)
@@ -33,6 +33,11 @@ extension Date {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "MM/dd/yyyy"
     return dateFormatter.string(from: self)
+  }
+  
+  static func from(year: Int, month: Int, day: Int) -> Date {
+    let components = DateComponents(year: year, month: month, day: day)
+    return Calendar.current.date(from: components)!
   }
   
   func shortened() -> String {
@@ -84,4 +89,55 @@ extension Date {
            addingTimeInterval(-(minutes * 60))
   }
   
+  var randomTime: Date {
+    let minutes = Int.random(in: 1...59)
+    let hour = Int.random(in: 1...23)
+    return Calendar.current.date(bySettingHour: hour, minute: minutes, second: 0, of: self)!
+  }
+  
+  static var yesterday: Date { return Date().dayBefore }
+  static var tomorrow:  Date { return Date().dayAfter }
+  var dayBefore: Date {
+    return Calendar.current.date(byAdding: .day, value: -1, to: midNight)!
+  }
+  var dayAfter: Date {
+    return Calendar.current.date(byAdding: .day, value: 1, to: midNight)!
+  }
+  var noon: Date {
+    return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+  }
+  
+  var midNight: Date {
+    return Calendar.current.date(bySettingHour: 23, minute: 59, second: 0, of: self)!
+  }
+  
+  var month: Int {
+    return Calendar.current.component(.month,  from: self)
+  }
+  var isLastDayOfMonth: Bool {
+    return dayAfter.month != month
+  }
+  
+  var startOfDay: Date {
+    return Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: self)!
+  }
+  
+  var endOfDay: Date {
+    return Calendar.current.date(bySettingHour: 23, minute: 59, second: 0, of: self)!
+  }
+  
+  var startOfMonth: Date {
+    
+    let calendar = Calendar(identifier: .gregorian)
+    let components = calendar.dateComponents([.year, .month], from: self)
+    
+    return  calendar.date(from: components)!
+  }
+  
+  var endOfMonth: Date {
+    var components = DateComponents()
+    components.month = 1
+    components.second = -1
+    return Calendar(identifier: .gregorian).date(byAdding: components, to: startOfMonth)!
+  }
 }

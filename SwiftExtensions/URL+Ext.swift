@@ -9,7 +9,7 @@ import Foundation
 
 extension URL    {
   func fileExist() -> Bool {
-    //https://stackoverflow.com/a/55776987/710793
+    // https://stackoverflow.com/a/55776987/710793
     FileManager.default.fileExists(atPath: self.path)
   }
   
